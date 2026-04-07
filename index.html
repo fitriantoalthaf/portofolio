@@ -1,82 +1,212 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitrianto | Graphic Designer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitrianto | Graphic Designer & Creative Director</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        }
+        @layer components {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600;
+            }
+            .bg-gradient-custom {
+                @apply bg-gradient-to-r from-indigo-600 to-purple-700;
+            }
+            .nav-link {
+                @apply font-semibold text-sm text-slate-600 hover:text-indigo-600 transition-colors;
+            }
+            .card-portfolio {
+                @apply bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-100;
+            }
+            .input-field {
+                @apply w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all;
+            }
+        }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-900">
 
-<body>
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter text-gradient">FITRIANTO</h1>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="bg-gradient-custom text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-indigo-200 hover:opacity-90 transition">Mulai Project</a>
+            </div>
+            
+            <div class="md:hidden text-2xl text-slate-600">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="container nav-flex">
-    <h1 class="logo">FITRIANTO</h1>
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-40 pb-32 px-6 bg-slate-900 overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full"></div>
 
-    <div class="menu">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact" class="btn">Kontak</a>
-    </div>
+        <div class="relative max-w-4xl mx-auto text-center">
+            <span class="inline-block py-1 px-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-6">Expert Graphic Designer</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">Visual Kreatif & <br><span class="text-gradient">Identitas Brand.</span></h1>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">Membantu brand Anda tampil menonjol dengan desain eksklusif yang menggabungkan estetika modern dan tujuan bisnis.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="bg-gradient-custom text-white px-10 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-xl shadow-indigo-500/20">Lihat Portofolio</a>
+                <a href="#contact" class="bg-white/5 backdrop-blur-sm text-white border border-white/10 px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-  </div>
-</nav>
+    <!-- TENTANG SAYA (ABOUT) -->
+    <section id="about" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="aspect-[4/5] bg-slate-200 rounded-[40px] overflow-hidden shadow-2xl shadow-indigo-100">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Designer Profile">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
+                    <p class="text-indigo-600 font-bold uppercase tracking-widest text-xs mb-2">Available for</p>
+                    <p class="text-slate-800 font-bold text-lg leading-tight">Freelance Project &<br>Collaboration</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold mb-6 text-slate-800 leading-tight text-gradient inline-block">Mewujudkan Ide <br> Lewat Desain.</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">Halo, saya <b>Fitrianto</b>. Sebagai seorang desainer grafis yang berbasis di Purwokerto, saya berfokus pada penciptaan identitas visual yang fungsional dan berkarakter.</p>
+                <p class="text-slate-600 leading-relaxed mb-8">Keahlian saya meliputi pembuatan logo, desain media sosial, materi promosi, hingga layouting buku dengan sentuhan estetika modern yang profesional.</p>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 transition">
+                        <i class="fa-solid fa-pen-nib text-indigo-500 mb-3 text-xl"></i>
+                        <h4 class="font-bold text-slate-800">Logo Design</h4>
+                    </div>
+                    <div class="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 transition">
+                        <i class="fa-solid fa-layer-group text-indigo-500 mb-3 text-xl"></i>
+                        <h4 class="font-bold text-slate-800">Social Media</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section id="home" class="hero reveal">
-  <h1>Creative Graphic Designer</h1>
-  <p>Membuat desain modern & profesional untuk brand Anda</p>
-  <a href="#portfolio" class="btn">Lihat Portfolio</a>
-</section>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-24 bg-slate-100 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2 text-slate-800">Karya Pilihan</h2>
+                    <p class="text-slate-500">Beberapa project desain yang telah saya kerjakan.</p>
+                </div>
+                <div class="h-1 w-24 bg-gradient-custom rounded-full"></div>
+            </div>
 
-<!-- ABOUT -->
-<section id="about" class="section container reveal">
-  <h2>Tentang Saya</h2>
-  <p>
-    Saya Fitrianto, Graphic Designer yang fokus pada branding, logo,
-    dan desain visual modern untuk bisnis.
-  </p>
-</section>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-portfolio">
+                    <div class="aspect-[4/5] bg-slate-200"><img src="Logo Nafi Hijab 2024.png" class="w-full h-full object-cover" alt="Branding"></div>
+                    <div class="p-8">
+                        <span class="text-indigo-600 text-xs font-bold uppercase tracking-widest">Branding</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800">Nafi Hijab Identity</h3>
+                    </div>
+                </div>
+                <div class="card-portfolio">
+                    <div class="aspect-[4/5] bg-slate-200"><img src="Logo Faas.png" class="w-full h-full object-cover" alt="Logo Design"></div>
+                    <div class="p-8">
+                        <span class="text-purple-600 text-xs font-bold uppercase tracking-widest">Logo Design</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800">Modern Minimalist</h3>
+                    </div>
+                </div>
+                <div class="card-portfolio">
+                    <div class="aspect-[4/5] bg-slate-200"><img src="Kalender Meja Custom.png" class="w-full h-full object-cover" alt="Layouting"></div>
+                    <div class="p-8">
+                        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Layouting</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800">Sabinta Catalog</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section bg reveal">
-  <div class="container">
-    <h2>Portfolio</h2>
+    <!-- KONTAK DENGAN FORM -->
+    <section id="contact" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-slate-800">Hubungi Saya</h2>
+                    <p class="text-slate-500 mb-10 leading-relaxed text-lg">Punya project desain menarik? Jangan ragu untuk berdiskusi. Saya akan merespons dalam waktu kurang dari 24 jam.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-xl text-indigo-600 group-hover:bg-gradient-custom group-hover:text-white transition-all"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">WhatsApp</p>
+                                <p class="text-slate-800 font-bold">+62 838-2627-1995</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-xl text-indigo-600 group-hover:bg-gradient-custom group-hover:text-white transition-all"><i class="fa-regular fa-envelope"></i></div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Email</p>
+                                <p class="text-slate-800 font-bold">info.fitrianto@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="grid">
-      <div class="card">
-        <img src="img/logo-nafi-hijab.png">
-        <h3>Nafi Hijab</h3>
-      </div>
+                <!-- FORM KONTAK -->
+                <div class="bg-slate-50 p-8 md:p-10 rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/50">
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Nama Lengkap</label>
+                                <input type="text" placeholder="Fitrianto" class="input-field">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Email</label>
+                                <input type="email" placeholder="contoh@mail.com" class="input-field">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Kategori Project</label>
+                            <select class="input-field appearance-none">
+                                <option>Logo & Branding</option>
+                                <option>Social Media Design</option>
+                                <option>Materi Cetak</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Pesan / Detail Project</label>
+                            <textarea rows="4" placeholder="Ceritakan ide Anda..." class="input-field"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-custom text-white py-4 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] active:scale-[0.98] transition-all">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="card">
-        <img src="img/logo-faas.png">
-        <h3>Logo Faas</h3>
-      </div>
+    <!-- FOOTER -->
+    <footer class="py-12 bg-white text-center border-t border-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.instagram.com/sabintaprinting/" target="_blank" class="text-slate-400 hover:text-indigo-600 transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-indigo-600 transition"><i class="fa-brands fa-behance text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-indigo-600 transition"><i class="fa-brands fa-dribbble text-xl"></i></a>
+            </div>
+            <p class="text-slate-400 text-sm">&copy; 2026 Fitrianto — Graphic Designer. Based in Purwokerto.</p>
+        </div>
+    </footer>
 
-      <div class="card">
-        <img src="img/kalender-meja.png">
-        <h3>Kalender Meja</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section container center reveal">
-  <h2>Kontak</h2>
-  <p>WA: 0838-2627-1995</p>
-  <p>Email: info.fitrianto@gmail.com</p>
-</section>
-
-<footer>
-  <p>© 2026 Fitrianto</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
