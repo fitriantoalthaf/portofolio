@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitrianto | Graphic Designer & Creative Director</title>
+    <title>Fitrianto | Graphic Designer Portfolio</title>
     
     <!-- Scripts & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,11 +13,10 @@
 
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                 }
             }
         }
@@ -32,78 +31,99 @@
                 @apply bg-gradient-to-r from-indigo-600 to-purple-700;
             }
             .nav-link {
-                @apply font-semibold text-sm text-slate-600 hover:text-indigo-600 transition-colors;
+                @apply font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white transition-all px-4 py-2 rounded-xl;
+            }
+            .nav-link.active {
+                @apply bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-500/20;
             }
             .card-portfolio {
-                @apply bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-100;
+                @apply bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:hover:shadow-indigo-500/10;
             }
             .input-field {
-                @apply w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all;
+                @apply w-full px-5 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all dark:text-white;
             }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+    <nav id="navbar" class="fixed w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
             <h1 class="text-2xl font-bold tracking-tighter text-gradient">FITRIANTO</h1>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">Tentang</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#contact" class="bg-gradient-custom text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-indigo-200 hover:opacity-90 transition">Mulai Project</a>
+            <div class="flex items-center gap-2 md:gap-6">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">Tentang</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#contact" class="bg-gradient-custom text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-indigo-200 hover:opacity-90 transition ml-4">Kontak</a>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="dark-mode-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 transition-all">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-2xl p-2 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
             </div>
-            
-            <div class="md:hidden text-2xl text-slate-600 cursor-pointer">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 px-6 py-8 space-y-4 shadow-2xl">
+            <a href="#home" class="nav-link mobile-link block text-lg">Home</a>
+            <a href="#about" class="nav-link mobile-link block text-lg">Tentang</a>
+            <a href="#portfolio" class="nav-link mobile-link block text-lg">Portfolio</a>
+            <a href="#contact" class="bg-gradient-custom text-white px-6 py-4 rounded-2xl text-center font-bold block shadow-lg">Mulai Project</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative pt-40 pb-32 px-6 bg-slate-900 overflow-hidden">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full"></div>
+    <section id="home" class="relative pt-32 md:pt-48 pb-20 md:pb-32 px-6 bg-slate-900 overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-indigo-600/20 blur-[100px] rounded-full"></div>
+        <div class="absolute bottom-0 right-1/4 w-72 md:w-96 h-72 md:h-96 bg-purple-600/20 blur-[100px] rounded-full"></div>
 
         <div class="relative max-w-4xl mx-auto text-center">
-            <span class="inline-block py-1 px-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-6">Expert Graphic Designer</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">Visual Kreatif & <br><span class="text-gradient">Identitas Brand.</span></h1>
-            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">Membantu brand Anda tampil menonjol dengan desain eksklusif yang menggabungkan estetika modern dan tujuan bisnis.</p>
+            <span class="inline-block py-1 px-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6">Visual Designer & Artist</span>
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1]">Desain Visual & <br><span class="text-gradient">Identitas Kreatif.</span></h1>
+            <p class="text-slate-400 text-base md:text-xl mb-10 max-w-2xl mx-auto">Membantu brand Anda tampil menonjol dengan desain eksklusif yang modern dan profesional.</p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#portfolio" class="bg-gradient-custom text-white px-10 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-xl shadow-indigo-500/20">Lihat Portofolio</a>
-                <a href="#contact" class="bg-white/5 backdrop-blur-sm text-white border border-white/10 px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Hubungi Saya</a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="#portfolio" class="bg-gradient-custom text-white px-10 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-xl shadow-indigo-500/20 text-center">Lihat Karya</a>
+                <a href="#contact" class="bg-white/5 backdrop-blur-sm text-white border border-white/10 px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition text-center">Hubungi Saya</a>
             </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative">
-                <div class="aspect-[4/5] bg-slate-200 rounded-[40px] overflow-hidden shadow-2xl shadow-indigo-100">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Designer Profile">
+    <section id="about" class="py-20 md:py-32 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="relative order-2 lg:order-1">
+                <div class="aspect-[4/5] bg-slate-200 dark:bg-slate-800 rounded-[40px] overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Fitrianto Profile">
                 </div>
-                <div class="absolute -bottom-6 -right-6 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
-                    <p class="text-indigo-600 font-bold uppercase tracking-widest text-xs mb-2">Available for</p>
-                    <p class="text-slate-800 font-bold text-lg leading-tight">Freelance Project &<br>Collaboration</p>
+                <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 hidden sm:block">
+                    <p class="text-indigo-600 dark:text-indigo-400 font-bold uppercase tracking-tighter text-xs mb-1">Status</p>
+                    <p class="text-slate-800 dark:text-slate-100 font-bold text-lg leading-tight">Available for <br>New Projects</p>
                 </div>
             </div>
-            <div>
-                <h2 class="text-4xl font-bold mb-6 text-slate-800 leading-tight text-gradient inline-block">Mewujudkan Ide <br> Lewat Desain.</h2>
-                <p class="text-slate-600 leading-relaxed mb-6">Halo, saya <b>Fitrianto</b>. Sebagai seorang desainer grafis yang berbasis di Purwokerto, saya berfokus pada penciptaan identitas visual yang fungsional dan berkarakter.</p>
+            <div class="order-1 lg:order-2">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-800 dark:text-white leading-tight">Membantu Bisnis Berkembang Lewat <span class="text-gradient">Desain.</span></h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 text-lg">Halo, saya <b>Fitrianto</b>. Desainer grafis berbasis di Purwokerto yang berdedikasi menciptakan identitas visual yang ikonik dan fungsional.</p>
                 
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 transition">
-                        <i class="fa-solid fa-pen-nib text-indigo-500 mb-3 text-xl"></i>
-                        <h4 class="font-bold text-slate-800">Logo Design</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 border border-slate-100 dark:border-slate-800 rounded-3xl bg-white dark:bg-slate-900/50">
+                        <i class="fa-solid fa-pen-nib text-indigo-500 text-2xl mb-4"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-white">Logo Design</h4>
                     </div>
-                    <div class="p-4 border border-slate-100 rounded-2xl hover:border-indigo-200 transition">
-                        <i class="fa-solid fa-layer-group text-indigo-500 mb-3 text-xl"></i>
-                        <h4 class="font-bold text-slate-800">Social Media</h4>
+                    <div class="p-6 border border-slate-100 dark:border-slate-800 rounded-3xl bg-white dark:bg-slate-900/50">
+                        <i class="fa-solid fa-layer-group text-indigo-500 text-2xl mb-4"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-white">Branding</h4>
                     </div>
                 </div>
             </div>
@@ -111,45 +131,45 @@
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-24 bg-slate-100 px-6">
+    <section id="portfolio" class="py-20 md:py-32 bg-slate-100 dark:bg-slate-900 px-6 transition-colors duration-500">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
                 <div>
-                    <h2 class="text-4xl font-bold mb-2 text-slate-800">Karya Pilihan</h2>
-                    <p class="text-slate-500">Beberapa project desain yang telah saya kerjakan.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-slate-800 dark:text-white leading-tight">Karya Pilihan</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-lg">Project desain terbaru yang saya selesaikan.</p>
                 </div>
-                <div class="h-1 w-24 bg-gradient-custom rounded-full"></div>
+                <div class="h-1.5 w-24 bg-gradient-custom rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Item 1 -->
-                <div class="card-portfolio">
-                    <div class="aspect-[4/5] bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover" alt="Branding">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Project 1 -->
+                <div class="card-portfolio group">
+                    <div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                        <img src="logo-nafi-hijab.png" alt="Logo Nafi Hijab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-8">
-                        <span class="text-indigo-600 text-xs font-bold uppercase tracking-widest">Branding</span>
-                        <h3 class="text-xl font-bold mt-2 text-slate-800">Nafi Hijab Identity</h3>
+                        <span class="text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest">Branding</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800 dark:text-white">Logo Nafi Hijab</h3>
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="card-portfolio">
-                    <div class="aspect-[4/5] bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover" alt="Logo">
+                <!-- Project 2 -->
+                <div class="card-portfolio group">
+                    <div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                        <img src="logo-faas.png" alt="Logo FAAS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-8">
-                        <span class="text-purple-600 text-xs font-bold uppercase tracking-widest">Logo Design</span>
-                        <h3 class="text-xl font-bold mt-2 text-slate-800">Modern Minimalist</h3>
+                        <span class="text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-widest">Identity</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800 dark:text-white">Logo FAAS</h3>
                     </div>
                 </div>
-                <!-- Item 3 -->
-                <div class="card-portfolio">
-                    <div class="aspect-[4/5] bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover" alt="Layout">
+                <!-- Project 3 -->
+                <div class="card-portfolio group">
+                    <div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                        <img src="kalender-meja.png" alt="Kalender Meja" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-8">
-                        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Layouting</span>
-                        <h3 class="text-xl font-bold mt-2 text-slate-800">Sabinta Catalog</h3>
+                        <span class="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest">Print Media</span>
+                        <h3 class="text-xl font-bold mt-2 text-slate-800 dark:text-white">Kalender Meja</h3>
                     </div>
                 </div>
             </div>
@@ -157,78 +177,48 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 px-6 bg-white">
+    <section id="contact" class="py-20 md:py-32 px-6 bg-white dark:bg-slate-950 transition-colors">
         <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div>
-                    <h2 class="text-4xl font-bold mb-6 text-slate-800">Hubungi Saya</h2>
-                    <p class="text-slate-500 mb-10 leading-relaxed text-lg">Punya project desain menarik? Jangan ragu untuk berdiskusi. Saya akan merespons dalam waktu kurang dari 24 jam.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-800 dark:text-white">Mari Mulai Project <br><span class="text-gradient">Hebat Anda.</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">Punya ide? Mari diskusi. Saya akan membantu mewujudkannya menjadi visual yang menarik.</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-xl text-indigo-600 group-hover:bg-gradient-custom group-hover:text-white transition-all"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                            <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center text-2xl text-indigo-600 dark:text-indigo-400 shadow-sm"><i class="fa-brands fa-whatsapp"></i></div>
                             <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">WhatsApp</p>
-                                <p class="text-slate-800 font-bold">+62 838-2627-1995</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-xl text-indigo-600 group-hover:bg-gradient-custom group-hover:text-white transition-all"><i class="fa-regular fa-envelope"></i></div>
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Email</p>
-                                <p class="text-slate-800 font-bold">info.fitrianto@gmail.com</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[2px]">WhatsApp</p>
+                                <p class="font-bold text-lg text-slate-800 dark:text-white">+62 838-2627-1995</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- FORM -->
-                <div class="bg-slate-50 p-8 md:p-10 rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/50">
-                    <form id="formKontak" class="space-y-5">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Nama Lengkap</label>
-                                <input type="text" name="nama" required placeholder="Fitrianto" class="input-field">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Email</label>
-                                <input type="email" name="email" required placeholder="contoh@mail.com" class="input-field">
-                            </div>
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 md:p-12 rounded-[40px] border border-slate-100 dark:border-slate-800 shadow-2xl">
+                    <form id="formKontak" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <input type="text" required placeholder="Nama Anda" class="input-field">
+                            <input type="email" required placeholder="Email" class="input-field">
                         </div>
-                        <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Kategori Project</label>
-                            <select name="kategori" class="input-field appearance-none bg-no-repeat bg-[right_1.25rem_center]">
-                                <option>Logo & Branding</option>
-                                <option>Social Media Design</option>
-                                <option>Materi Cetak</option>
-                                <option>Lainnya</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Pesan</label>
-                            <textarea name="pesan" rows="4" required placeholder="Ceritakan ide Anda..." class="input-field"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-custom text-white py-4 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] active:scale-[0.98] transition-all">
-                            Kirim Pesan
-                        </button>
+                        <select class="input-field appearance-none cursor-pointer">
+                            <option>Logo & Branding</option>
+                            <option>Social Media</option>
+                            <option>Desain Cetak</option>
+                        </select>
+                        <textarea rows="4" required placeholder="Ceritakan ide Anda..." class="input-field"></textarea>
+                        <button type="submit" class="w-full bg-gradient-custom text-white py-5 rounded-2xl font-bold shadow-xl shadow-indigo-500/20 hover:scale-[1.01] transition-all">Kirim Pesan</button>
                     </form>
-                    <div id="notifSukses" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-2xl text-center font-bold">
-                        Pesan Berhasil Terkirim!
-                    </div>
+                    <div id="notifSukses" class="hidden mt-6 p-4 bg-green-500/10 text-green-500 rounded-2xl text-center font-bold">Pesan Berhasil Terkirim!</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 bg-white text-center border-t border-slate-50">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="https://www.instagram.com/sabintaprinting/" target="_blank" class="text-slate-400 hover:text-indigo-600 transition"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-indigo-600 transition"><i class="fa-brands fa-behance text-xl"></i></a>
-            </div>
-            <p class="text-slate-400 text-sm">&copy; 2026 Fitrianto. Based in Purwokerto.</p>
-        </div>
+    <footer class="py-12 bg-white dark:bg-slate-950 text-center border-t border-slate-50 dark:border-slate-900">
+        <p class="text-slate-400 text-sm">&copy; 2026 Fitrianto • Made with Passion in Purwokerto.</p>
     </footer>
 
     <script src="script.js"></script>
