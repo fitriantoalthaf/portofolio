@@ -1,79 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitrianto | Graphic Designer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitrianto | Portfolio</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font & Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-900">
 
 <!-- NAVBAR -->
-<nav class="navbar">
-    <div class="container">
-        <h1 class="logo">FITRIANTO</h1>
-        <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#about">Tentang</a>
-            <a href="#portfolio">Portfolio</a>
-        </div>
+<nav class="fixed w-full bg-white shadow-sm z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-indigo-600">FITRIANTO</h1>
+    <div class="space-x-6 hidden md:block">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Kontak</a>
     </div>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-    <h1>Visual Kreatif & Identitas Brand</h1>
-    <p>Membantu brand tampil menonjol dengan desain modern.</p>
+<section id="home" class="pt-32 pb-20 text-center bg-slate-900 text-white">
+  <h1 class="text-5xl font-bold mb-4">Graphic Designer</h1>
+  <p class="text-slate-300 mb-6">Desain modern untuk brand profesional</p>
+  <a href="#portfolio" class="bg-indigo-600 px-6 py-3 rounded-lg">Lihat Portfolio</a>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-    <h2>Tentang Saya</h2>
-    <p>Saya adalah Graphic Designer yang fokus pada branding dan visual modern.</p>
+<section id="about" class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-6">Tentang Saya</h2>
+  <p class="text-slate-600">
+    Halo, saya Fitrianto. Saya seorang Graphic Designer yang fokus pada branding,
+    logo design, dan media sosial.
+  </p>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="section bg">
-    <h2>Portfolio</h2>
+<section id="portfolio" class="py-20 bg-slate-100 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-10">Portfolio</h2>
 
-    <div class="grid">
-        <div class="card">
-            <img src="img/logo-nafi-hijab.png">
-            <h3>Nafi Hijab</h3>
-        </div>
+    <div class="grid md:grid-cols-3 gap-6">
 
-        <div class="card">
-            <img src="img/logo-faas.png">
-            <h3>Faas Logo</h3>
+      <div class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="img/logo-nafi-hijab.png" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">Nafi Hijab</h3>
         </div>
+      </div>
 
-        <div class="card">
-            <img src="img/kalender-meja.png">
-            <h3>Kalender</h3>
+      <div class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="img/logo-faas.png" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">Logo Faas</h3>
         </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="img/kalender-meja.png" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">Kalender Meja</h3>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>Kontak</h2>
-    <p>WA: 0838-2627-1995</p>
-    <p>Email: info.fitrianto@gmail.com</p>
+<section id="contact" class="py-20 px-6">
+  <div class="max-w-xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Kontak</h2>
+    <p class="text-slate-600 mb-4">Hubungi saya untuk project</p>
+    <p class="font-bold">WA: 0838-2627-1995</p>
+    <p class="font-bold">Email: info.fitrianto@gmail.com</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <p>© 2026 Fitrianto</p>
+<footer class="py-6 text-center text-slate-400">
+  © 2026 Fitrianto
 </footer>
-
-<!-- JS -->
-<script src="script.js"></script>
 
 </body>
 </html>
