@@ -1,33 +1,52 @@
 /* style.css */
 
-/* Custom Smooth Scrolling for Safari */
+/* Dasar Perilaku Scroll */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
+/* Transisi Halus untuk Dark Mode */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Navbar active background on scroll */
+/* Efek Navbar saat Scroll */
 .nav-scrolled {
     background-color: rgba(255, 255, 255, 0.95) !important;
     height: 70px !important;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
 }
 
-/* Input Focus Animation */
-.input-field:focus {
-    transform: translateY(-2px);
+.dark .nav-scrolled {
+    background-color: rgba(2, 6, 23, 0.95) !important;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
 }
 
-/* Form Success Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+/* Animasi Menu Mobile */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-#notifSukses {
-    animation: fadeIn 0.4s ease-out forwards;
+#mobile-menu:not(.hidden) {
+    display: block;
+    animation: slideIn 0.4s ease forwards;
+}
+
+/* Kustomisasi Scrollbar (Opsional) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #1e293b;
 }
