@@ -1,25 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitrianto | Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-    <header class="navbar">
-        <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-        </div>
-    </header>
 
-    <main class="container">
-        <section class="section">
-            <h2>About Me</h2>
-            <p>This is a section about me.</p>
-        </section>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-flex">
+    <h1 class="logo">FITRIANTO</h1>
+    <div class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact" class="btn">Kontak</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
 
-        <section class="section">
-            <h2>Projects</h2>
-            <p>Here are some of my projects.</p>
-        </section>
-    </main>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Graphic Designer</h1>
+  <p>Desain modern untuk brand profesional</p>
+  <a href="#portfolio" class="btn">Lihat Portfolio</a>
+</section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 My Portfolio</p>
-        </div>
-    </footer>
+<!-- ABOUT -->
+<section id="about" class="section container">
+  <h2>Tentang Saya</h2>
+  <p>
+    Halo, saya Fitrianto. Saya seorang Graphic Designer yang fokus pada branding,
+    logo design, dan media sosial.
+  </p>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section bg">
+  <div class="container">
+    <h2>Portfolio</h2>
+
+    <div class="grid">
+      <div class="card">
+        <img src="img/logo-nafi-hijab.png">
+        <h3>Nafi Hijab</h3>
+      </div>
+
+      <div class="card">
+        <img src="img/logo-faras.png">
+        <h3>Logo Faas</h3>
+      </div>
+
+      <div class="card">
+        <img src="img/kalender-meja.png">
+        <h3>Kalender Meja</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section container center">
+  <h2>Kontak</h2>
+  <p>WA: 0838-2627-1995</p>
+  <p>Email: info.fitrianto@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Fitrianto</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
+</html>
