@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const menuBtn = document.getElementById('menu-btn');
@@ -30,30 +28,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 2. SCROLL SPY (Navigasi Menyala Saat Scroll) ---
+    // --- 2. SCROLL SPY & NAVBAR BLUR EFFECT ---
     const onScroll = () => {
         let current = "";
         const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
         sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 150;
+            const sectionTop = section.offsetTop - 160;
             if (scrollPos >= sectionTop) {
                 current = section.getAttribute("id");
             }
         });
 
         navLinks.forEach((link) => {
+            // Abaikan tombol kontak utama agar gayanya tidak berantakan oleh class active biasa
+            if(link.id === 'nav-contact-btn') return; 
+            
             link.classList.remove("active");
             if (link.getAttribute("href").includes(current)) {
                 link.classList.add("active");
             }
         });
 
-        // Navbar Shadow logic
-        navbar.classList.toggle('nav-scrolled', scrollPos > 50);
+        // Efek transisi bayangan (shadow) halus pada navbar saat di-scroll
+        if (scrollPos > 30) {
+            navbar.classList.add('shadow-lg', 'bg-white/95', 'dark:bg-slate-950/95');
+            navbar.classList.remove('bg-white/80', 'dark:bg-slate-950/80');
+        } else {
+            navbar.classList.remove('shadow-lg', 'bg-white/95', 'dark:bg-slate-950/95');
+            navbar.classList.add('bg-white/80', 'dark:bg-slate-950/80');
+        }
     };
 
     window.addEventListener('scroll', onScroll);
+    onScroll(); // Jalankan sekali saat load awal
 
     // --- 3. MOBILE MENU TOGGLE ---
     menuBtn.addEventListener('click', () => {
@@ -63,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             '<i class="fa-solid fa-xmark"></i>';
     });
 
-    // Tutup menu saat link diklik
     document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
@@ -71,7 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 4. FORM HANDLING ---
+    // --- 4. ANIMASI MUNCUL SAAT SCROLL (INTERACTIVE INTERSECTION OBSERVER) ---
+    const observerOptions = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                scrollObserver.unobserve(entry.target); // Animasi dipicu sekali saja demi performa ringan
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll(".scroll-animate").forEach((el) => scrollObserver.observe(el));
+
+    // --- 5. FORM HANDLING ---
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
